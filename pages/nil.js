@@ -2,6 +2,7 @@
 import React from 'react';
 import FormNIL from '../components/FormNIL';
 import NavBar from '../components/NavBar';
+import NILList from '../components/DisplayNIL';
 
 const NILPage = () => {
     return (
@@ -11,6 +12,7 @@ const NILPage = () => {
        
             <h1 className="text-2xl font-bold text-center mb-6">NIL Submission</h1>
             <FormNIL />
+            <NILList/>
         </div>
         </>
     );

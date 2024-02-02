@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const NewStudent = () => {
+const NewStudentForm = ({ onClose }) => {
   const [student, setStudent] = useState({
     name: '',
     age: '',
@@ -42,11 +42,14 @@ const NewStudent = () => {
   };
 
   return (
-    <div className="max-w-lg mx-auto my-8">
-     
-  
-    
-        <form onSubmit={handleSubmit}>
+    <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center">
+      <div className="bg-white rounded-lg p-5 shadow-lg max-w-md w-full m-4">
+        <div className="flex justify-end">
+          <button onClick={onClose} className="text-black close-modal">
+            &times;
+          </button>
+        </div>
+        <form onSubmit={handleSubmit} className="space-y-4">
           <div className="mb-4">
             <input
               type="text"
@@ -153,12 +156,10 @@ const NewStudent = () => {
           <button type="submit" className="w-full px-4 py-2 text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2">
             Add Student
           </button>
-        </form>
-      
+          </form>
+      </div>
     </div>
   );
-  
-  
 };
 
-export default NewStudent;
+export default NewStudentForm;
