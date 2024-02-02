@@ -81,6 +81,7 @@ const Globals = () => {
 
   return (
     <div className="p-4 sm:p-6 bg-gray-100 rounded-lg shadow-lg">
+   
       <ul className="space-y-4 mt-4">
         {globalsData.map((item, index) => (
           <li key={index} className="bg-white p-4 sm:p-6 rounded-lg shadow-lg grid grid-cols-1 md:grid-cols-3 gap-4 divide-y md:divide-y-0 divide-gray-200">
@@ -92,20 +93,18 @@ const Globals = () => {
               <div className="text-base sm:text-lg font-medium text-gray-600 mt-2 sm:mt-4">NIL Logged:</div>
               <div className="text-xl sm:text-2xl font-bold text-blue-500">${totalLoggedNIL.toLocaleString()}</div>
             </div>
-            <div className="flex flex-col items-center justify-center py-4 md:py-0">
-              <span className="text-3xl sm:text-4xl font-bold text-gray-900">{item.university}</span>
-              <span className="mt-2 text-sm sm:text-md text-gray-500 font-medium">{studentsData.length} Student-Athletes</span>
-            </div>
-            <div className="flex flex-col space-y-2 py-4 md:py-0 md:pl-4">
-              {Object.entries(securityTotals).map(([level, count]) => (
-                <div key={level} className="flex justify-between items-center">
-                  <span className={`px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm font-medium text-white ${levelColors[level]}`}>
-                    {levelLabels[level] || 'Unknown'}
-                  </span>
-                  <span className="ml-2 text-base sm:text-lg font-bold text-gray-800">{count}</span>
-                </div>
-              ))}
-            </div>
+          
+            <div className="flex flex-col space-y-4 py-4 md:py-0 md:pl-4">
+  {Object.entries(securityTotals).map(([level, count]) => (
+    <div key={level} className="flex justify-between items-center">
+      <span className={`px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm font-medium text-white ${levelColors[level]}`}>
+        {levelLabels[level] || 'Unknown'}
+      </span>
+      <span className="ml-2 text-base sm:text-lg font-bold text-gray-800">{count}</span>
+    </div>
+  ))}
+</div>
+
           </li>
         ))}
       </ul>
