@@ -2,3 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
+/* globals.css */
+
+/* Base background and text colors */
+body {
+    background-color: #00008041; /* Navy Blue */
+    color: #FFFFFF; /* White */
+  }
+  
+  /* Heading styles */
+  h1, h2, h3, h4, h5, h6 {
+    color: #D4AF37; /* Athletic Gold */
+  }
+  
+  /* Link styles */
+  a {
+    color: #FFFFFF; /* White */
+    text-decoration: none;
+  }
+  
+  a:hover, a:focus {
+    color: #D4AF37; /* Athletic Gold */
+    text-decoration: underline;
+  }
+  
+  /* Button styles */
+  button {
+    background-color: #D4AF37; /* Athletic Gold */
+    color: #000080; /* Navy Blue */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #B7950B; /* Darker Gold */
+  }
+  
+  /* Input styles */
+  input, select, textarea {
+    background-color: #FFFFFF; /* White */
+    color: #000080; /* Navy Blue */
+    border: 2px solid #D4AF37; /* Athletic Gold */
+    padding: 5px;
+  }
+  
+  /* Utility classes */
+  .text-white {
+    color: #FFFFFF; /* White */
+  }
+  
+  .bg-navy {
+    background-color: #000080; /* Navy Blue */
+  }
+  
+  .border-gold {
+    border-color: #D4AF37; /* Athletic Gold */
+  }
+  
