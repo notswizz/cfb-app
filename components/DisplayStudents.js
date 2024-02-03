@@ -101,7 +101,7 @@ const DisplayStudents = ({ onStudentClick, filters = { searchTerm: '', selectedC
                   onChange={(e) => handleSecurityChange(student._id, e.target.value)}
                   className="w-full cursor-pointer rounded-lg bg-gray-200 h-2 focus:outline-none focus:ring focus:ring-indigo-300"
                 />
-                <span className="border border-green-500 text-green-500 text-md font-semibold px-4 py-1 rounded-full shadow-sm hover:bg-green-500 hover:text-white transition-colors duration-300">
+                <span className="border border-green-500 text-black-500 text-md font-semibold px-4 py-1 rounded-full shadow-sm hover:bg-green-500 hover:text-white transition-colors duration-300">
   ${student.expectedNIL ? Number(student.expectedNIL).toLocaleString() : '0'}
 </span>
 
