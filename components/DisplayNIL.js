@@ -103,30 +103,52 @@ const NILList = () => {
 
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
+
+
   return (
-    <div className="p-6 bg-gray-100 rounded-lg shadow-md">
-      <h1 className="text-2xl font-bold text-gray-800 mb-4">NIL Entries</h1>
-      {nilEntries.length > 0 ? (
-        <ul className="list-disc pl-5 space-y-3">
-          {nilEntries.map((entry) => (
-            <li key={entry._id.$oid} className="bg-white p-4 rounded-md shadow-sm">
-              <h2 className="text-xl font-semibold text-gray-700">{entry.company}</h2>
-              <p className="text-gray-600">Total Amount: <span className="font-medium">${entry.totalAmount}</span></p>
-              <Select
+    <div className="card bg-base-200 shadow-xl">
+      <div className="card-body">
+        <h1 className="card-title text-3xl font-bold mb-4">NIL Entries</h1>
+        {nilEntries.length > 0 ? (
+          <ul>
+            {nilEntries.map((entry) => (
+              <li key={entry._id.$oid} className="mb-4 p-4 rounded-lg shadow-md bg-base-100">
+                <h2 className="text-xl font-semibold">{entry.company}</h2>
+                <p>Total Amount: <span className="text-primary font-semibold">${entry.totalAmount.toLocaleString()}</span></p>
+                {/* Assuming you have a custom DaisyUI class or component for the Select */}
+                <Select
                 isMulti
                 options={studentOptions}
                 defaultValue={entry.students.map(id => ({ value: id, label: students[id] || id }))}
                 onChange={(selectedOptions) => handleStudentChange(entry._id.$oid, selectedOptions)}
                 className="mt-1"
+                styles={{
+                  option: (provided, state) => ({
+                      ...provided,
+                      color: state.isSelected ? 'black' : 'black',
+                  }),
+                  singleValue: (provided) => ({
+                      ...provided,
+                      color: 'black',
+                  }),
+                  multiValue: (provided) => ({
+                      ...provided,
+                      color: 'black',
+                  }),
+              }}
               />
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p className="text-gray-600">No NIL entries found.</p>
-      )}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>No NIL entries found.</p>
+        )}
+      </div>
     </div>
   );
+  
+
 };
 
 export default NILList;
+

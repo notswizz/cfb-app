@@ -9,10 +9,11 @@ const NILPage = () => {
         <>
         <NavBar />
         <div className="container mx-auto my-8">
-       
             <h1 className="text-2xl font-bold text-center mb-6">NIL Submission</h1>
-            <FormNIL />
-            <NILList/>
+            <div className="flex flex-col sm:flex-row justify-between">
+                <FormNIL />
+                <NILList/>
+            </div>
         </div>
         </>
     );

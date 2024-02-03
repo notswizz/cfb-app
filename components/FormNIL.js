@@ -65,8 +65,10 @@ const FormNIL = () => {
 
     return (
         <form onSubmit={handleSubmit} className="max-w-lg mx-auto space-y-6">
-            <div>
-                <label htmlFor="company" className="block text-sm font-medium text-gray-700">Company</label>
+            <div className="form-control">
+                <label htmlFor="company" className="label">
+                    <span className="label-text">Company</span>
+                </label>
                 <input
                     type="text"
                     name="company"
@@ -74,22 +76,26 @@ const FormNIL = () => {
                     value={nilData.company}
                     onChange={handleChange}
                     required
-                    className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                    className="input input-bordered w-full"
                 />
             </div>
-            <div>
-                <label htmlFor="totalAmount" className="block text-sm font-medium text-gray-700">Total Amount</label>
+            <div className="form-control">
+                <label htmlFor="totalAmount" className="label">
+                    <span className="label-text">Total Amount</span>
+                </label>
                 <input
                     type="number"
                     name="totalAmount"
                     id="totalAmount"
                     value={nilData.totalAmount}
                     onChange={handleChange}
-                    className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                    className="input input-bordered w-full"
                 />
             </div>
-            <div>
-                <label htmlFor="totalStudents" className="block text-sm font-medium text-gray-700">Total Students</label>
+            <div className="form-control">
+                <label htmlFor="totalStudents" className="label">
+                    <span className="label-text">Total Students</span>
+                </label>
                 <input
                     type="number"
                     name="totalStudents"
@@ -97,24 +103,42 @@ const FormNIL = () => {
                     value={totalStudents}
                     onChange={handleTotalStudentsChange}
                     min="0"
-                    className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                    className="input input-bordered w-full"
                 />
             </div>
-            <div>
-                <label htmlFor="students" className="block text-sm font-medium text-gray-700">Students</label>
+            <div className="form-control">
+                <label htmlFor="students" className="label">
+                    <span className="label-text">Students</span>
+                </label>
+                {/* Ensure that your Select component from React Select is compatible with DaisyUI styles */}
                 <Select
                     isMulti
                     name="students"
                     options={studentOptions}
                     className="mt-1"
                     onChange={handleStudentsSelect}
+                    styles={{
+                        option: (provided, state) => ({
+                            ...provided,
+                            color: state.isSelected ? 'black' : 'black',
+                        }),
+                        singleValue: (provided) => ({
+                            ...provided,
+                            color: 'black',
+                        }),
+                        multiValue: (provided) => ({
+                            ...provided,
+                            color: 'black',
+                        }),
+                    }}
                 />
             </div>
-            <button type="submit" className="w-full px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50">
+            <button type="submit" className="btn btn-primary w-full">
                 Submit NIL Data
             </button>
         </form>
     );
+    
 };
 
 export default FormNIL;
