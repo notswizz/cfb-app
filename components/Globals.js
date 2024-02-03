@@ -99,7 +99,7 @@ const Globals = () => {
               </div>
             </div>
 
-            <div className="stat">
+            <div className="stat sm:block">
               {Object.entries(securityTotals).map(([level, count]) => (
                 <div key={level} className="flex justify-between items-center">
                   <span className={`badge badge-${levelColors[level]}`}>

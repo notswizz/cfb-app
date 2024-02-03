@@ -5,7 +5,7 @@ const NavBar = () => {
   const currentDate = new Date().toLocaleDateString();
 
   return (
-    <nav className="navbar bg-gradient-to-r from-primary to-accent shadow-lg text-white">
+    <nav className="navbar bg-gradient-to-r from-primary to-secondary shadow-lg text-white">
       <div className="navbar-start">
         <Link href="/admin" className="btn btn-ghost btn-sm rounded-btn">
           Admin

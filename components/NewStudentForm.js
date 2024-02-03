@@ -43,120 +43,120 @@ const NewStudentForm = ({ onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center">
-      <div className="bg-white rounded-lg p-5 shadow-lg max-w-md w-full m-4">
-        <div className="flex justify-end">
-          <button onClick={onClose} className="text-black close-modal">
-            &times;
-          </button>
-        </div>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="mb-4">
-            <input
-              type="text"
-              name="name"
-              value={student.name}
-              onChange={handleChange}
-              placeholder="Student Name"
-              required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent"
-            />
-          </div>
-          <div className="mb-4">
-            <input
-              type="number"
-              name="age"
-              value={student.age}
-              onChange={handleChange}
-              placeholder="Age"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent"
-            />
-          </div>
-          <div className="mb-4">
-            <select
-              name="class"
-              value={student.class}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent"
-            >
-              <option value="">Class</option>
-              <option value="Freshman">Freshman</option>
-              <option value="Sophomore">Sophomore</option>
-              <option value="Junior">Junior</option>
-              <option value="Senior">Senior</option>
-              <option value="Super Senior">Super Senior</option>
-            </select>
-          </div>
-          <div className="mb-4">
-            <select
-              name="position"
-              value={student.position}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent"
-            >
-              <option value="">Position</option>
-              <option value="QB">QB</option>
-              <option value="RB">RB</option>
-              <option value="WR">WR</option>
-              <option value="TE">TE</option>
-              <option value="OL">OL</option>
-            </select>
-          </div>
-          <div className="mb-4">
-            <input
-              type="text"
-              name="socialMedia"
-              value={student.socialMedia}
-              onChange={handleChange}
-              placeholder="Social Media Handle"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent"
-            />
-          </div>
-          <div className="mb-4">
-            <input
-              type="text"
-              name="hometown"
-              value={student.hometown}
-              onChange={handleChange}
-              placeholder="Hometown"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent"
-            />
-          </div>
-          <div className="mb-6">
-            <input
-              type="tel"
-              name="phoneNumber"
-              value={student.phoneNumber}
-              onChange={handleChange}
-              placeholder="Phone Number"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent"
-            />
-          </div>
-          <div className="mb-4">
-  <input
-    type="number"
-    name="expectedNIL"
-    value={student.expectedNIL}
-    onChange={handleChange}
-    placeholder="Expected NIL"
-    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent"
-  />
-</div>
-          <div className="mb-4">
-            <label htmlFor="security" className="block text-gray-700">Security</label>
-            <input
-              type="range"
-              min="1"
-              max="5"
-              name="security"
-              value={student.security}
-              onChange={handleChange}
-              className="w-full"
-            />
-          </div>
-          <button type="submit" className="w-full px-4 py-2 text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2">
-            Add Student
-          </button>
+      <div className="relative bg-white rounded-lg p-5 shadow-lg max-w-md w-full m-4">
+        <button onClick={onClose} className="btn btn-circle btn-sm btn-error absolute top-2 right-2">
+          &times;
+        </button>
+        <div className="overflow-y-auto max-h-96 mt-8">
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div>
+              <input
+                type="text"
+                name="name"
+                value={student.name}
+                onChange={handleChange}
+                placeholder="Student Name"
+                required
+                className="input input-bordered w-full"
+              />
+            </div>
+            <div>
+              <input
+                type="number"
+                name="age"
+                value={student.age}
+                onChange={handleChange}
+                placeholder="Age"
+                className="input input-bordered w-full"
+              />
+            </div>
+            <div>
+              <select
+                name="class"
+                value={student.class}
+                onChange={handleChange}
+                className="select select-bordered w-full"
+              >
+                <option value="">Class</option>
+                <option value="Freshman">Freshman</option>
+                <option value="Sophomore">Sophomore</option>
+                <option value="Junior">Junior</option>
+                <option value="Senior">Senior</option>
+                <option value="Super Senior">Super Senior</option>
+              </select>
+            </div>
+            <div>
+              <select
+                name="position"
+                value={student.position}
+                onChange={handleChange}
+                className="select select-bordered w-full"
+              >
+                <option value="">Position</option>
+                <option value="QB">QB</option>
+                <option value="RB">RB</option>
+                <option value="WR">WR</option>
+                <option value="TE">TE</option>
+                <option value="OL">OL</option>
+              </select>
+            </div>
+            <div>
+              <input
+                type="text"
+                name="socialMedia"
+                value={student.socialMedia}
+                onChange={handleChange}
+                placeholder="Social Media Handle"
+                className="input input-bordered w-full"
+              />
+            </div>
+            <div>
+              <input
+                type="text"
+                name="hometown"
+                value={student.hometown}
+                onChange={handleChange}
+                placeholder="Hometown"
+                className="input input-bordered w-full"
+              />
+            </div>
+            <div>
+              <input
+                type="tel"
+                name="phoneNumber"
+                value={student.phoneNumber}
+                onChange={handleChange}
+                placeholder="Phone Number"
+                className="input input-bordered w-full"
+              />
+            </div>
+            <div>
+              <input
+                type="number"
+                name="expectedNIL"
+                value={student.expectedNIL}
+                onChange={handleChange}
+                placeholder="Expected NIL"
+                className="input input-bordered w-full"
+              />
+            </div>
+            <div>
+              <label htmlFor="security" className="block text-gray-700">Security</label>
+              <input
+                type="range"
+                min="1"
+                max="5"
+                name="security"
+                value={student.security}
+                onChange={handleChange}
+                className="slider slider-horizontal w-full"
+              />
+            </div>
+            <button type="submit" className="btn btn-primary w-full">
+              Add Student
+            </button>
           </form>
+        </div>
       </div>
     </div>
   );

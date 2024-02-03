@@ -27,18 +27,20 @@ const EditBudget = ({ onClose, currentBudget }) => {
   };
   
   return (
-    <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex justify-center items-center">
-      <div className="bg-white p-5 rounded-lg shadow-lg">
-        <form onSubmit={handleSubmit}>
-          <h2 className="text-xl font-bold mb-4">Edit NIL Budget</h2>
+    <div className="fixed inset-0 bg-gray-900 bg-opacity-60 overflow-y-auto h-full w-full flex justify-center items-center px-4">
+      <div className="bg-white p-8 rounded-xl shadow-2xl w-full max-w-md">
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <h2 className="text-2xl font-extrabold mb-6 text-gray-800">Edit NIL Budget</h2>
           <input 
             type="text" 
             value={budget} 
             onChange={(e) => setBudget(e.target.value)}
-            className="w-full mb-4 px-2 py-1 border border-gray-300 rounded-md"
+            className="input input-bordered w-full"
           />
-          <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-700">Submit</button>
-          <button type="button" onClick={onClose} className="ml-2 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-700">Cancel</button>
+          <div className="flex justify-end space-x-2">
+            <button type="submit" className="btn btn-primary">Submit</button>
+            <button type="button" onClick={onClose} className="btn btn-error">Cancel</button>
+          </div>
         </form>
       </div>
     </div>

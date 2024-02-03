@@ -22,52 +22,20 @@ const Controller = ({ onClose }) => {
                         <h3 className="text-lg leading-6 font-medium text-gray-900" id="modal-title">
                             Theme Controller
                         </h3>
-                        <div className="join join-vertical">
-  <div className="column">
-    {["light", "dark", "cyberpunk", "lofi", "valentine"].map((themeOption) => (
-      <label key={themeOption} className="btn theme-controller join-item" aria-label={themeOption}>
-        <input
-          type="radio"
-          name="theme-buttons"
-          value={themeOption}
-          checked={theme === themeOption}
-          onChange={handleThemeChange}
-        />
-        {themeOption.charAt(0).toUpperCase() + themeOption.slice(1)}
-      </label>
-    ))}
-  </div>
-  <div className="column">
-    {["business", "acid", "cmyk", "cupcake", "bumblebee"].map((themeOption) => (
-      <label key={themeOption} className="btn theme-controller join-item" aria-label={themeOption}>
-        <input
-          type="radio"
-          name="theme-buttons"
-          value={themeOption}
-          checked={theme === themeOption}
-          onChange={handleThemeChange}
-        />
-        {themeOption.charAt(0).toUpperCase() + themeOption.slice(1)}
-      </label>
-    ))}
-  </div>
-  <div className="column">
-    {["corporate", "synthwave", "retro", "halloween", "garden"].map((themeOption) => (
-      <label key={themeOption} className="btn theme-controller join-item" aria-label={themeOption}>
-        <input
-          type="radio"
-          name="theme-buttons"
-          value={themeOption}
-          checked={theme === themeOption}
-          onChange={handleThemeChange}
-        />
-        {themeOption.charAt(0).toUpperCase() + themeOption.slice(1)}
-      </label>
-    ))}
-  </div>
-</div>
-
-
+                        <div className="grid grid-cols-3 gap-4 overflow-y-auto max-h-96 mt-4">
+                            {["light", "dark", "cyberpunk", "lofi", "valentine", "business", "acid", "cmyk", "cupcake", "bumblebee", "corporate", "synthwave", "retro", "halloween", "garden"].map((themeOption) => (
+                                <label key={themeOption} className="btn theme-controller join-item" aria-label={themeOption}>
+                                    <input
+                                        type="radio"
+                                        name="theme-buttons"
+                                        value={themeOption}
+                                        checked={theme === themeOption}
+                                        onChange={handleThemeChange}
+                                    />
+                                    {themeOption.charAt(0).toUpperCase() + themeOption.slice(1)}
+                                </label>
+                            ))}
+                        </div>
                     </div>
                     <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                         <button type="button" className="btn btn-primary" onClick={onClose}>

@@ -52,17 +52,17 @@ const AdminPage = () => {
         ) : globalsData && globalsData.length > 0 ? (
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
             <Globals globalsData={globalsData} className="flex-grow" />
-            <div className="flex-grow">
-              <button onClick={handleAddStudentClick} className="btn btn-primary mt-4 w-full sm:w-auto">
-                New Student
-              </button>
-              <button onClick={() => handleEditBudgetClick()} className="btn btn-secondary mt-4 w-full sm:w-auto">
-                NIL Budget
-              </button>
-              <button onClick={handleThemeClick} className="btn btn-accent mt-4 w-full sm:w-auto">
-                Theme
-              </button>
-            </div>
+            <div className="flex flex-col">
+  <button onClick={handleAddStudentClick} className="btn btn-primary mt-4 w-full sm:w-auto">
+    New Student
+  </button>
+  <button onClick={() => handleEditBudgetClick()} className="btn btn-secondary mt-4 w-full sm:w-auto">
+    NIL Budget
+  </button>
+  <button onClick={handleThemeClick} className="btn btn-accent mt-4 w-full sm:w-auto">
+    Theme
+  </button>
+</div>
           </div>
         ) : (
           <p>No data to display.</p>

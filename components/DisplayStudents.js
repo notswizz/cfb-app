@@ -73,7 +73,7 @@ const DisplayStudents = ({ onStudentClick, filters = { searchTerm: '', selectedC
             {/* Card Header */}
             <div className="card-title">
               {/* Position Tag with increased size and margin */}
-              <span className="badge badge-secondary text-lg m-2">{student.position}</span>
+              <span className="badge badge-accent text-lg m-2">{student.position}</span>
             </div>
 
             {/* Card Body */}
@@ -98,7 +98,7 @@ const DisplayStudents = ({ onStudentClick, filters = { searchTerm: '', selectedC
                   max="5" 
                   value={student.security}
                   onChange={(e) => handleSecurityChange(student._id, e.target.value)}
-                  className="range range-accent"
+                  className="range range-secondary"
                 />
                 <span className="badge badge-outline">
                   ${student.expectedNIL ? Number(student.expectedNIL).toLocaleString() : '0'}
