@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Navigate to your project directory (change this to your project's path)
-cd /path/to/your/project
 
 # Check for uncommitted changes
 if git diff-index --quiet HEAD --; then
@@ -17,5 +15,5 @@ else
     git commit -m "$commit_message"
 
     # Push the changes
-    git push origin master
+    git push origin main
 fi
