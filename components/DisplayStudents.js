@@ -64,10 +64,10 @@ const DisplayStudents = ({ onStudentClick, filters = { searchTerm: '', selectedC
   if (error) return <div>Error: {error}</div>;
 
  
-  
   return (
     <div className="max-w-4xl mx-auto my-1">
-      <ul className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-gradient-to-r from-gray-100 to-gray-300 shadow-lg overflow-auto rounded-lg max-h-96 p-4">
+      {/* Set a max height and overflow-auto to make the list scrollable */}
+      <ul className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-gradient-to-r from-gray-100 to-gray-300 shadow-lg rounded-lg p-4 overflow-auto" style={{ maxHeight: '500px' }}>
         {filteredStudents.map((student) => (
           <li key={student._id} className="card card-bordered card-compact bg-base-100 shadow-xl">
             {/* Card Header */}
@@ -75,7 +75,7 @@ const DisplayStudents = ({ onStudentClick, filters = { searchTerm: '', selectedC
               {/* Position Tag with increased size and margin */}
               <span className="badge badge-accent text-lg m-2">{student.position}</span>
             </div>
-
+  
             {/* Card Body */}
             <div className="card-body">
               <button 
@@ -84,12 +84,12 @@ const DisplayStudents = ({ onStudentClick, filters = { searchTerm: '', selectedC
               >
                 {student.name}
               </button>
-
+  
               <div className="text-sm space-y-1 mt-3">
                 <p className="font-medium">{student.class}</p>
                 <p>{student.hometown}</p>
               </div>
-
+  
               <div className="card-actions justify-end mt-4">
                 <span className="label-text">{securityText(student.security)}</span>
                 <input 

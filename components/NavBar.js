@@ -19,10 +19,11 @@ const NavBar = () => {
       </div>
 
       <div className="navbar-center">
-        <Link href="/" className="text-2xl sm:text-3xl font-bold hover:text-navy-blue transition duration-300 ease-in-out hover:underline">
-          Targeted
-        </Link>
-      </div>
+  <Link href="/" className="btn btn-ghost normal-case text-xl sm:text-2xl text-white font-bold tracking-widest transition duration-300 ease-in-out hover:bg-primary hover:text-secondary">
+    Targeted
+  </Link>
+</div>
+
 
       <div className="navbar-end">
         <span className="text-sm sm:text-lg font-light">

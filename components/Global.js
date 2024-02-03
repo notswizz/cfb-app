@@ -100,17 +100,7 @@ const Global = () => {
               </div>
             </div>
   
-            {/* Stack security levels vertically */}
-            <div className="flex flex-col space-y-2 mt-4">
-              {Object.entries(securityTotals).map(([level, count]) => (
-                <div key={level} className="flex justify-between items-center">
-                  <span className={`badge badge-${levelColors[level]}`}>
-                    {levelLabels[level] || 'Unknown'}
-                  </span>
-                  <span className="stat-value">{count}</span>
-                </div>
-              ))}
-            </div>
+           
           </li>
         ))}
       </ul>

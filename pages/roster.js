@@ -29,24 +29,22 @@ const RosterPage = () => {
   return (
     <>
       <NavBar />
-      <div className="container mx-auto my-8">
-        {/* Flex container for all screen sizes */}
-        <div className="flex flex-col lg:flex-row justify-between">
-          {/* Filters will stack on mobile and be on the left on larger screens */}
-          <div className="lg:w-1/4 mb-4 lg:mb-0 lg:mr-4">
-            <PlayerFilters onFilterChange={handleFilterChange} />
+      <div className="container mx-auto my-8 overflow-x-hidden">
+        <div className="flex flex-col lg:flex-row lg:items-start gap-4">
+          <div className="w-full lg:w-1/4">
+            <div className="mb-4">
+              <PlayerFilters onFilterChange={handleFilterChange} />
+            </div>
+            {/* Global component hidden on mobile, visible on lg screens and above */}
+            <div className="hidden lg:block mt-4">
+              <Global />
+            </div>
           </div>
-          {/* DisplayStudents in the center */}
           <div className="flex-grow">
             <DisplayStudents 
               onStudentClick={handleStudentClick}
-              filters={filters} 
+              filters={filters}
             />
-          </div>
-          {/* Global component will be on the right for larger screens */}
-          {/* Adjusted classes for better fitting */}
-          <div className="lg:w-1/4 mt-4 lg:mt-0 lg:ml-4">
-            <Global />
           </div>
         </div>
         
