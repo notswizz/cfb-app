@@ -50,20 +50,23 @@ const AdminPage = () => {
         {isLoading ? (
           <p>Loading...</p>
         ) : globalsData && globalsData.length > 0 ? (
-          <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-            <Globals globalsData={globalsData} className="flex-grow" />
-            <div className="flex flex-col">
-  <button onClick={handleAddStudentClick} className="btn btn-primary mt-4 w-full sm:w-auto">
-    New Student
-  </button>
-  <button onClick={() => handleEditBudgetClick()} className="btn btn-secondary mt-4 w-full sm:w-auto">
-    NIL Budget
-  </button>
-  <button onClick={handleThemeClick} className="btn btn-accent mt-4 w-full sm:w-auto">
-    Theme
-  </button>
+          <>
+            <div className="flex flex-row justify-center space-x-4 mb-4">
+              <button onClick={handleAddStudentClick} className="btn btn-primary">
+                New Student
+              </button>
+              <button onClick={() => handleEditBudgetClick()} className="btn btn-secondary">
+                NIL Budget
+              </button>
+              <button onClick={handleThemeClick} className="btn btn-accent">
+                Theme
+              </button>
+            </div>
+            <div className="flex justify-center items-center">
+  <Globals globalsData={globalsData} />
 </div>
-          </div>
+
+          </>
         ) : (
           <p>No data to display.</p>
         )}
@@ -86,6 +89,7 @@ const AdminPage = () => {
       )}
     </>
   );
+
 };
 
 export default AdminPage;

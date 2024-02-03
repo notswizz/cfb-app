@@ -66,7 +66,7 @@ const DisplayStudents = ({ onStudentClick, filters = { searchTerm: '', selectedC
  
   
   return (
-    <div className="max-w-4xl mx-auto my-8">
+    <div className="max-w-4xl mx-auto my-1">
       <ul className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-gradient-to-r from-gray-100 to-gray-300 shadow-lg overflow-auto rounded-lg max-h-96 p-4">
         {filteredStudents.map((student) => (
           <li key={student._id} className="card card-bordered card-compact bg-base-100 shadow-xl">

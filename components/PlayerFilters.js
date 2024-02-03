@@ -22,7 +22,7 @@ const PlayerFilters = ({ onFilterChange }) => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row gap-4 mb-6">
+    <div className="flex md:flex-col gap-4 mb-6">
       <input
         type="text"
         placeholder="Search by name"
