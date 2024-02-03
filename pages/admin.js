@@ -38,40 +38,40 @@ const AdminPage = () => {
   };
 
   return (
-    <>
-      <NavBar />
-      <div className="container mx-auto p-4 sm:p-8">
-        {isLoading ? (
-          <p>Loading...</p>
-        ) : globalsData && globalsData.length > 0 ? (
-          <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-            <Globals globalsData={globalsData} className="flex-grow" />
-            <div className="flex-grow">
-              <button onClick={handleAddStudentClick} className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50 w-full sm:w-auto">
-                Add New Student
-              </button>
-              <button onClick={() => handleEditBudgetClick()} className="mt-4 px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-opacity-50 w-full sm:w-auto">
-                Edit NIL Budget
-              </button>
+      <>
+        <NavBar />
+        <div className="container mx-auto p-4 sm:p-8">
+          {isLoading ? (
+            <p>Loading...</p>
+          ) : globalsData && globalsData.length > 0 ? (
+            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+              <Globals globalsData={globalsData} className="flex-grow" />
+              <div className="flex-grow">
+                <button onClick={handleAddStudentClick} className="btn btn-primary mt-4 w-full sm:w-auto">
+                  Add New Student
+                </button>
+                <button onClick={() => handleEditBudgetClick()} className="btn btn-secondary mt-4 w-full sm:w-auto">
+                  Edit NIL Budget
+                </button>
+              </div>
             </div>
-          </div>
-        ) : (
-          <p>No data to display.</p>
+          ) : (
+            <p>No data to display.</p>
+          )}
+        </div>
+        {showEditModal && globalsData && globalsData.length > 0 && (
+          <EditBudget
+            currentBudget={globalsData[0].nilBudget}
+            onClose={() => setShowEditModal(false)}
+          />
         )}
-      </div>
-      {showEditModal && globalsData && globalsData.length > 0 && (
-        <EditBudget
-          currentBudget={globalsData[0].nilBudget}
-          onClose={() => setShowEditModal(false)}
-        />
-      )}
-      {showNewStudentModal && (
-        <NewStudentForm
-          onClose={() => setShowNewStudentModal(false)}
-        />
-      )}
-    </>
-  );
+        {showNewStudentModal && (
+          <NewStudentForm
+            onClose={() => setShowNewStudentModal(false)}
+          />
+        )}
+      </>
+    );
 };
 
 export default AdminPage;

@@ -80,37 +80,40 @@ const Globals = () => {
   
 
   return (
-    <div className="p-4 sm:p-6 bg-gray-100 rounded-lg shadow-lg">
-   
-      <ul className="space-y-4 mt-4">
+    <div className="p-2 sm:p-4 md:p-6 bg-base-100 rounded-box shadow-lg">
+      <ul className="space-y-2 sm:space-y-4 mt-2 sm:mt-4">
         {globalsData.map((item, index) => (
-          <li key={index} className="bg-white p-4 sm:p-6 rounded-lg shadow-lg grid grid-cols-1 md:grid-cols-3 gap-4 divide-y md:divide-y-0 divide-gray-200">
-            <div className="md:pr-4 py-4 md:py-0">
-              <div className="text-base sm:text-lg font-medium text-gray-600">NIL Budget:</div>
-              <div className="text-xl sm:text-2xl font-bold text-green-500">${item.nilBudget.toLocaleString()}</div>
-              <div className="text-base sm:text-lg font-medium text-gray-600 mt-2 sm:mt-4">NIL Promised:</div>
-              <div className="text-xl sm:text-2xl font-bold text-orange-400">${totalExpectedNIL.toLocaleString()}</div>
-              <div className="text-base sm:text-lg font-medium text-gray-600 mt-2 sm:mt-4">NIL Logged:</div>
-              <div className="text-xl sm:text-2xl font-bold text-blue-500">${totalLoggedNIL.toLocaleString()}</div>
+          <li key={index} className="stats bg-base-200 shadow">
+            <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 space-x-0 sm:space-x-4">
+              <div className="stat">
+                <div className="stat-title">NIL Budget</div>
+                <div className="stat-value text-success">${item.nilBudget.toLocaleString()}</div>
+              </div>
+              <div className="stat">
+                <div className="stat-title">NIL Promised</div>
+                <div className="stat-value text-warning">${totalExpectedNIL.toLocaleString()}</div>
+              </div>
+              <div className="stat">
+                <div className="stat-title">NIL Logged</div>
+                <div className="stat-value text-info">${totalLoggedNIL.toLocaleString()}</div>
+              </div>
             </div>
-          
-            <div className="flex flex-col space-y-4 py-4 md:py-0 md:pl-4">
-  {Object.entries(securityTotals).map(([level, count]) => (
-    <div key={level} className="flex justify-between items-center">
-      <span className={`px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm font-medium text-white ${levelColors[level]}`}>
-        {levelLabels[level] || 'Unknown'}
-      </span>
-      <span className="ml-2 text-base sm:text-lg font-bold text-gray-800">{count}</span>
-    </div>
-  ))}
-</div>
 
+            <div className="stat">
+              {Object.entries(securityTotals).map(([level, count]) => (
+                <div key={level} className="flex justify-between items-center">
+                  <span className={`badge badge-${levelColors[level]}`}>
+                    {levelLabels[level] || 'Unknown'}
+                  </span>
+                  <span className="stat-value">{count}</span>
+                </div>
+              ))}
+            </div>
           </li>
         ))}
       </ul>
     </div>
   );
-  
   
 };
 
