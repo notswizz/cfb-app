@@ -28,12 +28,12 @@ const PlayerFilters = ({ onFilterChange }) => {
         placeholder="Search by name"
         value={searchTerm}
         onChange={handleSearchChange}
-        className="p-2 border border-gray-300 rounded-md"
+        className="input input-bordered input-accent w-full max-w-xs"
       />
       <select
         value={selectedClass}
         onChange={handleClassChange}
-        className="p-2 border border-gray-300 rounded-md"
+        className="select select-accent w-full max-w-xs"
       >
         <option value="">Filter by class</option>
         <option value="Freshman">Freshman</option>
@@ -45,7 +45,7 @@ const PlayerFilters = ({ onFilterChange }) => {
       <select
         value={selectedPosition}
         onChange={handlePositionChange}
-        className="p-2 border border-gray-300 rounded-md"
+        className="select select-accent w-full max-w-xs"
       >
         <option value="">Filter by position</option>
         <option value="QB">QB</option>

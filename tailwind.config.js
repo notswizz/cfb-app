@@ -18,6 +18,6 @@ module.exports = {
     },
   },
   plugins: [
-    // Add any Tailwind CSS plugins here
+    require('daisyui')
   ],
 }
