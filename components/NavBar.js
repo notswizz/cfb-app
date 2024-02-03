@@ -5,7 +5,8 @@ const NavBar = () => {
   const currentDate = new Date().toLocaleDateString();
 
   return (
-<nav className="bg-navy-blue text-custom-white p-2 sm:p-4 shadow-md">
+<nav className="text-white p-2 sm:p-4 shadow-md bg-gradient-to-r from-blue-900 to-blue-800">
+
   <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center space-y-3 sm:space-y-0 sm:space-x-4">
     <div className="flex flex-col sm:flex-row sm:space-x-4 items-center">
       <Link href="/admin" className="text-lg sm:text-xl hover:text-athletic-gold transition duration-300 ease-in-out border border-athletic-gold p-1 rounded">

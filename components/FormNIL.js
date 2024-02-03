@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Select from 'react-select';
 
 const FormNIL = () => {
     const [nilData, setNilData] = useState({
@@ -7,6 +8,17 @@ const FormNIL = () => {
         students: []
     });
     const [studentList, setStudentList] = useState([]);
+    const [totalStudents, setTotalStudents] = useState(0);
+
+    const studentOptions = studentList.map(student => ({
+        value: student._id,
+        label: student.name
+    }));
+
+    const handleStudentsSelect = (selectedOptions) => {
+        const studentIds = selectedOptions.map(option => option.value);
+        setNilData({ ...nilData, students: studentIds });
+    };
 
     useEffect(() => {
         const fetchStudents = async () => {
@@ -26,14 +38,8 @@ const FormNIL = () => {
         setNilData({ ...nilData, [e.target.name]: e.target.value });
     };
 
-    const handleAddStudent = () => {
-        setNilData({ ...nilData, students: [...nilData.students, ''] });
-    };
-
-    const handleStudentChange = (e, index) => {
-        const newStudents = [...nilData.students];
-        newStudents[index] = e.target.value;
-        setNilData({ ...nilData, students: newStudents });
+    const handleTotalStudentsChange = (e) => {
+        setTotalStudents(e.target.value);
     };
 
     const handleSubmit = async (e) => {
@@ -44,7 +50,7 @@ const FormNIL = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(nilData),
+                body: JSON.stringify({...nilData, totalStudents}),
             });
 
             if (!response.ok) {
@@ -82,27 +88,28 @@ const FormNIL = () => {
                     className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                 />
             </div>
-           
-            {nilData.students.map((student, index) => (
-                <div key={index}>
-                    <label htmlFor={`student${index}`} className="block text-sm font-medium text-gray-700">Student {index + 1}</label>
-                    <select
-                        name="student"
-                        id={`student${index}`}
-                        value={student}
-                        onChange={(e) => handleStudentChange(e, index)}
-                        className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-                    >
-                        <option value="">Select a student</option>
-                        {studentList.map((s) => (
-                            <option key={s._id} value={s._id}>{s.name}</option>
-                        ))}
-                    </select>
-                </div>
-            ))}
-            <button type="button" onClick={handleAddStudent} className="w-full px-4 py-2 text-white bg-green-600 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-opacity-50">
-                Add Student
-            </button>
+            <div>
+                <label htmlFor="totalStudents" className="block text-sm font-medium text-gray-700">Total Students</label>
+                <input
+                    type="number"
+                    name="totalStudents"
+                    id="totalStudents"
+                    value={totalStudents}
+                    onChange={handleTotalStudentsChange}
+                    min="0"
+                    className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                />
+            </div>
+            <div>
+                <label htmlFor="students" className="block text-sm font-medium text-gray-700">Students</label>
+                <Select
+                    isMulti
+                    name="students"
+                    options={studentOptions}
+                    className="mt-1"
+                    onChange={handleStudentsSelect}
+                />
+            </div>
             <button type="submit" className="w-full px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50">
                 Submit NIL Data
             </button>

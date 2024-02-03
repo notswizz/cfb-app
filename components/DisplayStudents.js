@@ -63,31 +63,48 @@ const DisplayStudents = ({ onStudentClick, filters = { searchTerm: '', selectedC
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
+ 
+  
   return (
     <div className="max-w-4xl mx-auto my-8">
-      <ul className="bg-gradient-to-r from-silver-gray to-charcoal-gray shadow-lg overflow-auto rounded-lg max-h-96 grid grid-cols-1 md:grid-cols-2 gap-6 p-4">
+      <ul className="bg-gradient-to-r from-gray-100 to-gray-300 shadow-lg overflow-auto rounded-lg max-h-96 grid grid-cols-1 md:grid-cols-2 gap-6 p-4">
         {filteredStudents.map((student) => (
-          <li key={student._id} className="bg-white transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-2xl rounded-lg">
-            <div className="flex flex-col md:flex-row justify-between items-center p-6">
-              <div>
-                <button onClick={() => onStudentClick(student)} className="inline-block bg-navy-blue text-white text-lg px-3 py-1 rounded-full font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-navy-blue">
+          <li key={student._id} className="bg-white transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-xl rounded-lg relative">
+            {/* Position Tag */}
+            <span className="absolute top-0 right-0 bg-yellow-400 text-gray-800 text-md font-semibold py-1 px-3 rounded-bl-full uppercase tracking-wide">
+              {student.position}
+            </span>
+            
+            {/* Content */}
+            <div className="flex flex-col md:flex-row justify-between items-center p-6 space-y-4 md:space-y-0 pt-8"> {/* Padding top added */}
+              <div className="space-y-3"> {/* Increased space between position and location */}
+                <button 
+                  onClick={() => onStudentClick(student)} 
+                  className="bg-black hover:bg-gray-800 text-white text-lg font-bold py-2 px-4 rounded-full focus:outline-none focus:ring focus:ring-gray-500"
+                >
                   {student.name}
                 </button>
-                <span className="block text-sm text-gray-600 mt-2">{student.class}</span>
-                <span className="block text-sm text-gray-600">{student.hometown}</span>
-                <span className="inline-block bg-athletic-gold text-black text-md px-3 py-1 rounded-full uppercase font-semibold tracking-wide mt-2">{student.position}</span>
+  
+                <div className="text-sm text-gray-700 space-y-1">
+                  <p className="font-medium">{student.class}</p>
+                  <p className="text-gray-600">{student.hometown}</p>
+                </div>
               </div>
-              <div className="flex flex-col items-center mt-4 md:mt-0">
-                <span className="text-charcoal-gray font-semibold text-lg">{securityText(student.security)}</span>
+  
+              <div className="flex flex-col items-center space-y-4"> {/* Increased space between slider and NIL value */}
+                <span className="text-gray-700 font-semibold text-lg">{securityText(student.security)}</span>
                 <input 
                   type="range" 
                   min="1" 
                   max="5" 
                   value={student.security}
                   onChange={(e) => handleSecurityChange(student._id, e.target.value)}
-                  className="w-full cursor-pointer rounded-lg overflow-hidden appearance-none bg-silver-gray h-3 focus:outline-none focus:ring-2 focus:ring-navy-blue focus:border-transparent"
+                  className="w-full cursor-pointer rounded-lg bg-gray-200 h-2 focus:outline-none focus:ring focus:ring-indigo-300"
                 />
-                <span className="bg-green-300 text-green-900 text-md font-semibold mt-2 px-4 py-2 rounded-full">${student.expectedNIL ? Number(student.expectedNIL).toLocaleString() : '0'}</span>
+                <span className="border border-green-500 text-green-500 text-md font-semibold px-4 py-1 rounded-full shadow-sm hover:bg-green-500 hover:text-white transition-colors duration-300">
+  ${student.expectedNIL ? Number(student.expectedNIL).toLocaleString() : '0'}
+</span>
+
               </div>
             </div>
           </li>
@@ -95,7 +112,6 @@ const DisplayStudents = ({ onStudentClick, filters = { searchTerm: '', selectedC
       </ul>
     </div>
   );
-  
   
   
   
