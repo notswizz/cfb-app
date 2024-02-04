@@ -4,6 +4,7 @@ import NavBar from '../components/NavBar';
 import StudentModal from '../components/StudentModal';
 import PlayerFilters from '../components/PlayerFilters';
 import Global from '../components/Global'; // Import the Global component
+import Security from '../components/Security'; // 
 
 const RosterPage = () => {
   const [selectedStudent, setSelectedStudent] = useState(null);
@@ -55,6 +56,7 @@ const RosterPage = () => {
           />
         )}
       </div>
+      <Security/>
     </>
   );
 };
