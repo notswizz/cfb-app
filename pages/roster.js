@@ -56,7 +56,9 @@ const RosterPage = () => {
           />
         )}
       </div>
-      <Security/>
+      <div className="hidden sm:block">
+        <Security/>
+      </div>
     </>
   );
 };
